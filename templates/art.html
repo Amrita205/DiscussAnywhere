@@ -1,0 +1,55 @@
+{%load static%}
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Art</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+                <meta charset="utf-8">
+                <title>Discuss Anywhere</title>
+                <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+                <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+                <link rel="stylesheet" href="{%static 'home2.css'%}">
+  </head>
+<body>
+<form method="POST"  enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.media}}
+        {{form.as_p}}
+</form>
+
+ {% for img in arts%}
+   <div class="card">
+  <img
+    src=""
+    class="card-img-top"
+    alt="..."
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{img.tittle}} 
+      {{img.post_at}}
+        {% comment %} <img src="{% static '/img/threedots.png' %}" style="float:right; margin-right: -5px; margin-top: -10px; width:15px">{% endcomment %}
+    <div class="dropdown" style="float:right;">
+    <button class="dropbtn" style="float:right; margin-right: -5px; margin-top: -10px;"><img src="{% static '/img/threedots.png' %}" style=" width:15px"></button>
+      <div class="dropdown-content">
+        <a href="#">Edit_Post</a>
+        <a href="#">Delete_Post </a>
+        <a href="comment/">Comment</a>
+      </div>
+    </div>
+    </h5> 
+    <p class="card-text">
+      {{img.description | safe}}
+    </p>
+    <a href="#!" class="btn btn-primary">More details</a>
+  </div>
+</div>
+{% endfor %}
+       
+</body>
+</html>

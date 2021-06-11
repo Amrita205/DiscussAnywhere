@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- <title>Transparent Login Form UI</title> -->
+    <link rel="stylesheet" href="{% static 'signin.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="{% static 'signin.js' %}"></script>
+  </head>
+  <body style="background-image: url({% static '/img/home.gif' %})">
+    <div class="bg-img">
+      <div class="content">
+        <header>Reset your password</header>
+        <form action="signin" method="POST">
+          {% csrf_token %}
+          <div class="field">
+            <span class="fa fa-user"></span>
+            <input type="text" name="name" required placeholder="Email id or ph no.">
+          </div>
+         <div class="field">
+            <input type="submit" value="Send OTP">
+          </div>
+         
+</form>

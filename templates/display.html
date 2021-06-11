@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Art</title> 
+  </head>
+<body>
+
+    {% for img in arts%}
+     {{img.name}}
+     <img src="{{img.image.url}}">
+     {{img.description}}
+     {% endfor %}
+</body>
+</html>
